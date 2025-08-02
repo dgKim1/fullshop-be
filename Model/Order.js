@@ -4,7 +4,7 @@ const Product = require("./Product");
 const Schema = mongoose.Schema;
 const orderSchema = Schema(
   {
-    userId: { type: mongoose.ObjectId, required: true },
+    userId: { type: mongoose.ObjectId, ref: User, required: true },
     status: { type: String, default: "preparing" },
     totalPrice: { type: Number, required: true, default: 0 },
     shipTo: { type: Object, required: true },
