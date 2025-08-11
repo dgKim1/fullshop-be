@@ -29,5 +29,11 @@ orderSchema.methods.toJSON = function () {
   return obj;
 };
 
+orderSchema.post("save", async function () {
+  const cart = await Cart.findOne({ userId: this.userId });
+  cart.items = [];
+  await cart.save();
+});
+
 const Order = mongoose.model("Order", orderSchema);
 module.exports = Order;

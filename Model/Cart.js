@@ -7,7 +7,7 @@ const cartSchema = Schema(
     userId: { type: mongoose.ObjectId, ref: User },
     items: [
       {
-        productId: { type: mongoose.isObjectIdOrHexString, ref: Product },
+        productId: { type: mongoose.ObjectId, ref: Product },
         size: { type: String, required: true },
         qty: { type: Number, default: 1 },
       },
